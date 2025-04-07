@@ -126,7 +126,7 @@ Easy Dataset 是一个专为创建大型语言模型（LLM）微调数据集而�
    ```  
 2. 构建 Docker 镜像：  
    ```bash
-   docker build -t easy-dataset .
+   docker build --ulimit nofile=65536:65536 -t easy-dataset .
    ```  
 3. 运行容器：  
    ```bash
