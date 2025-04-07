@@ -1,5 +1,5 @@
 # 使用Node.js 18作为基础镜像
-FROM node:18-alpine
+FROM docker.m.daocloud.io/node:18-alpine
 
 # 设置工作目录
 WORKDIR /app
@@ -9,6 +9,7 @@ RUN npm install -g pnpm
 
 # 复制package.json和pnpm-lock.yaml
 COPY package.json pnpm-lock.yaml* ./
+RUN npm config set registry https://registry.npmmirror.com
 
 # 安装依赖
 RUN pnpm install
